@@ -1,46 +1,288 @@
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<style>
-body {
-    background: lightgreen;
-    font-family: Verdana;
-}  
-#content {
-    background: lightyellow;
-    min-width: 200px;
-    max-width: 500px;
-    padding: 50px;
-    margin: auto;
-    margin-top: -50px;
-    line-height: 150%;
-}
-h1 {
-    letter-spacing: 2px;
-    font-size: 16px;
-    text-align: center;
-}
-h2 {
-    font-size: 14px;
-    text-align: center;
-}
-h3 {
-    font-size: 12px;
-}
-</style>
-</head>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explore the World | Discover Nature</title>
+
+    <!-- Custom Favicon -->
+    <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='85'%3E🌿%3C/text%3E%3C/svg%3E">
+
+    <style>
+        :root {
+            --primary: #287A68;
+            --background: #f4f8f5;
+            --surface: #ffffff;
+            --text: #26352f;
+            --secondary: #64756d;
+        }
+
+        /* Dark Mode */
+        body.dark {
+            --background: #17231f;
+            --surface: #25352e;
+            --text: #f1f5f2;
+            --secondary: #bdccc3;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            transition: 0.3s;
+        }
+
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h1 {
+            font-size: 26px;
+        }
+
+        button {
+            background: white;
+            color: #287A68;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        nav {
+            padding: 15px 8%;
+            background: var(--surface);
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 45px 25px;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            margin-bottom: 45px;
+        }
+
+        .hero img {
+            width: 50%;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 30px;
+        }
+
+        .hero-text p {
+            margin-bottom: 15px;
+        }
+
+        .section {
+            background: var(--surface);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+        }
+
+        .links a {
+            color: var(--primary);
+            margin-right: 20px;
+            font-weight: bold;
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Smartphone Layout */
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero {
+                flex-direction: column;
+            }
+
+            .hero img {
+                width: 100%;
+            }
+
+            main {
+                padding: 25px 18px;
+            }
+
+            h2 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
 <body>
-    <div id="content">
-        <h1>John Yu</h1>
-        <h2>Sophmore in Greenville, South Carolina</h2>
-        
-         <p>I am a Sophmore at Bob Jones University studying Criminal Justice. I'm now pursuing my degree while working in the schools dinig services.</p>
-         <p>
-            I go to Independent Bible Church just 5 min walk away from the school. 
-         </p> 
-         <p>
-            I enjoy goinh hiking and playing pickleball during my spare time.
-         </p>
-        <h3>EDUCATION</h3>
-        Criminal Justice<br />
-        Bob Jones University<br />
-        
+
+    <header>
+        <h1>🌿 Explore the World</h1>
+        <button onclick="toggleMode()" id="modeButton">
+            🌙 Dark Mode
+        </button>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#discover">Discover</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <!-- Embedded image: no separate image file needed -->
+            <img
+                alt="Beautiful green mountain landscape"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 550'%3E%3Cdefs%3E%3ClinearGradient id='sky' x2='0' y2='1'%3E%3Cstop stop-color='%2389c9dc'/%3E%3Cstop offset='1' stop-color='%23e6efc6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='550' fill='url(%23sky)'/%3E%3Ccircle cx='620' cy='120' r='65' fill='%23ffdf85'/%3E%3Cpath d='M0 390 L220 110 430 390Z' fill='%237b9c84'/%3E%3Cpath d='M180 390 L490 75 800 390Z' fill='%234e7963'/%3E%3Cpath d='M375 190 L490 75 605 190 540 165 490 130 445 170Z' fill='%23f3f5e9'/%3E%3Cpath d='M0 370 Q180 290 350 390 T800 350 V550 H0Z' fill='%232e7654'/%3E%3Cpath d='M0 440 Q180 380 400 450 T800 420 V550 H0Z' fill='%233d8c60'/%3E%3C/svg%3E"
+            >
+
+            <div class="hero-text">
+                <h2>Discover the Beauty of Nature</h2>
+
+                <p>
+                    Welcome to Explore the World! Nature is full of
+                    beautiful places, amazing wildlife, and incredible
+                    adventures waiting to be discovered.
+                </p>
+
+                <p>
+                    From peaceful forests to towering mountains,
+                    our planet offers something special for everyone.
+                    Take a moment to explore, learn, and appreciate
+                    the wonderful world around us.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="section" id="about">
+            <h2>About Our Planet</h2>
+
+            <p>
+                Earth is home to millions of different plants and
+                animals. Its oceans, forests, deserts, and mountains
+                create diverse environments that support life.
+                Protecting these natural spaces is important for
+                future generations.
+            </p>
+        </section>
+
+        <section class="section" id="discover">
+            <h2>Why Explore Nature?</h2>
+
+            <p>
+                Spending time outdoors can help us relax, stay active,
+                and appreciate our environment. Hiking, camping,
+                birdwatching, and visiting national parks are wonderful
+                ways to experience nature.
+            </p>
+
+            <p>
+                Even small actions, such as recycling, planting trees,
+                and reducing waste, can make a positive difference.
+                Everyone can help protect our planet.
+            </p>
+        </section>
+
+        <section class="section" id="resources">
+            <h2>Explore More</h2>
+
+            <p>
+                Interested in learning more about the environment?
+                Visit these helpful websites:
+            </p>
+
+            <div class="links">
+                <p>
+                    <a href="https://www.nationalgeographic.com/"
+                       target="_blank" rel="noopener noreferrer">
+                        National Geographic
+                    </a>
+                </p>
+
+                <p>
+                    <a href="https://www.worldwildlife.org/"
+                       target="_blank" rel="noopener noreferrer">
+                        World Wildlife Fund
+                    </a>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Explore the World | Discover, Appreciate, Protect.</p>
+        <p>© 2026 Explore the World. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("dark");
+
+            const button = document.getElementById("modeButton");
+
+            if (document.body.classList.contains("dark")) {
+                button.textContent = "☀️ Light Mode";
+            } else {
+                button.textContent = "🌙 Dark Mode";
+            }
+        }
+    </script>
+
+</body>
+</html>
